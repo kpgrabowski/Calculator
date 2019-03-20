@@ -29,7 +29,7 @@ class App extends React.Component {
 
     handelAlert = () => {
         setTimeout(()=>{
-            alert("Siemanderko");},
+            alert("Wpisałeś czas: " + this.state.timeToRefresh);},
             this.state.timeToRefresh)
         };
 
