@@ -1,6 +1,17 @@
 import React from 'react';
-import AppBarCalculator from './AppBarCalculator';
-import RefreshWebsite from './RefreshWebsite';
+import AppBarCalculator from './appBarCalculator';
+import RefreshWebsite from './refreshWebsite';
+import Calculator from "./calculator";
+import withStyles from "@material-ui/core/es/styles/withStyles";
+
+
+const styles = {
+    positionCalculator: {
+        direction: 'column',
+        justify: 'center',
+        alignItems: 'center',
+    },
+};
 
 
 
@@ -14,15 +25,18 @@ class App extends React.Component {
     }
 
     render() {
+        const {classes} = this.props;
         return (
             <div>
                 <AppBarCalculator/>
-                <RefreshWebsite/>
+                <div className={classes.positionCalculator}>
+                    <RefreshWebsite/>
+                    <Calculator/>
+                </div>
             </div>
         );
     }
 }
 
 
-
-export default App;
+export default withStyles(styles)(App);
