@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import withStyles from "@material-ui/core/es/styles/withStyles";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
@@ -40,9 +39,24 @@ class Calculator extends Component {
         super(props);
 
         this.state = {
-            score: 'Siemanko',
+            score: [],
         };
     }
+
+    handelButtonNine = () => {
+        this.setState({
+        ...this.state,
+            score: this.state.score.push('9'),
+        })
+    };
+
+    handelButtonEight = () => {
+        this.setState({
+            ...this.state,
+            score: this.state.score.push('8'),
+        })
+    };
+
 
     render() {
         const {classes} = this.props;
@@ -54,7 +68,7 @@ class Calculator extends Component {
                             disabled
                             id="filled-disabled"
                             label="Display"
-                            value={this.state.score}
+                            value={this.state.score[0]}
                             className={classes.textField}
                             margin="normal"
                             variant="filled"
@@ -62,49 +76,68 @@ class Calculator extends Component {
                         />
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>7</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}>
+                            7</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>8</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}
+                                onClick={this.handelButtonEight}>8</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>9</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}
+                                onClick={this.handelButtonNine}>9</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyleCharacters}>/</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyleCharacters}>/</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>4</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}>4</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>5</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}>5</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>6</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}>6</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyleCharacters}>x</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyleCharacters}>x</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>1</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}>1</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>2</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}>2</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>3</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyle}>3</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyleCharacters}>-</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyleCharacters}>-</Button>
                     </Grid>
                     <Grid item xs>
-                        <Button variant="contained" fullWidth className={classes.buttonStyleNull}>0</Button>
+                        <Button variant="contained"
+                                fullWidth
+                                className={classes.buttonStyleNull}>0</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyleSum}>=</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyleSum}>=</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyleCharacters}>+</Button>
+                        <Button variant="contained"
+                                className={classes.buttonStyleCharacters}>+</Button>
                     </Grid>
                 </Grid>
             </div>
