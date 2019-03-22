@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 const styles =  {
   calculatorStyle: {
     backgroundColor: 'red',
+    height: '400px',
+    width: '500px',
   },
 };
 

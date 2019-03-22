@@ -4,20 +4,15 @@ import Button from "@material-ui/core/Button/Button";
 import withStyles from "@material-ui/core/es/styles/withStyles";
 import PropTypes from "prop-types";
 
-// const styles = theme => ({
-//   textField: {
-//     marginLeft: theme.spacing.unit,
-//     marginRight: theme.spacing.unit,
-//     width: 200,
-//   },
-// });
-
-
-const styles = {
+const styles = theme => ({
   textField: {
-    width: 250,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200,
   },
-};
+});
+
+
 
 class RefreshWebsite extends React.Component {
   constructor(props) {
@@ -68,8 +63,6 @@ class RefreshWebsite extends React.Component {
       </div>
     )
   }
-
-
 }
 
 RefreshWebsite.propTypes = {
