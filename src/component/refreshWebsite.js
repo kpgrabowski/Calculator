@@ -3,15 +3,21 @@ import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import withStyles from "@material-ui/core/es/styles/withStyles";
 import PropTypes from "prop-types";
-import App from "./App";
 
-const styles = theme => ({
+// const styles = theme => ({
+//   textField: {
+//     marginLeft: theme.spacing.unit,
+//     marginRight: theme.spacing.unit,
+//     width: 200,
+//   },
+// });
+
+
+const styles = {
   textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
+    width: 250,
   },
-});
+};
 
 class RefreshWebsite extends React.Component {
   constructor(props) {
@@ -20,7 +26,6 @@ class RefreshWebsite extends React.Component {
     this.state = {
       timeToRefresh: "",
     };
-
   }
 
   handelAlert = () => {
@@ -38,9 +43,10 @@ class RefreshWebsite extends React.Component {
 
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     return (
-      <div>
+      <div styles={{ display:"flex"}}>
+        <div>
         <TextField
           id="timeToRefreshId"
           label="Write time to refresh"
@@ -49,6 +55,8 @@ class RefreshWebsite extends React.Component {
           onChange={this.handleTimeToRefresh('timeToRefresh')}
           margin="normal"
         />
+        </div>
+        <div>
         <Button
           variant="contained"
           color="primary"
@@ -56,6 +64,7 @@ class RefreshWebsite extends React.Component {
         >
           Hello Kamil
         </Button>
+        </div>
       </div>
     )
   }
@@ -66,5 +75,4 @@ class RefreshWebsite extends React.Component {
 RefreshWebsite.propTypes = {
   classes: PropTypes.object.isRequired,
 };
-
 export default withStyles(styles)(RefreshWebsite);
