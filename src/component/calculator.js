@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 const styles = theme => ({
     calculatorStyle: {
@@ -12,18 +13,35 @@ const styles = theme => ({
     },
     buttonStyle: {
         margin: theme.spacing.unit,
+        backgroundColor: 'green',
+    },
+    buttonStyleCharacters: {
+        margin: theme.spacing.unit,
+        backgroundColor: 'blue',
+        color: 'white',
     },
     buttonStyleNull: {
+        marginRight: '53px',
+        marginTop: '8px',
+        backgroundColor: 'green',
+    },
+    buttonStyleSum: {
         margin: theme.spacing.unit,
-        // weight: '50px',
-    }
+        backgroundColor: 'red',
+    },
+    textField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+    },
 });
 
 class Calculator extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            score: 'Siemanko',
+        };
     }
 
     render() {
@@ -31,6 +49,18 @@ class Calculator extends Component {
         return (
             <div className={classes.calculatorStyle}>
                 <Grid container>
+                    <Grid item xs={12}>
+                        <TextField
+                            disabled
+                            id="filled-disabled"
+                            label="Display"
+                            value={this.state.score}
+                            className={classes.textField}
+                            margin="normal"
+                            variant="filled"
+                            fullWidth
+                        />
+                    </Grid>
                     <Grid item xs={3}>
                         <Button variant="contained" className={classes.buttonStyle}>7</Button>
                     </Grid>
@@ -41,7 +71,7 @@ class Calculator extends Component {
                         <Button variant="contained" className={classes.buttonStyle}>9</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>/</Button>
+                        <Button variant="contained" className={classes.buttonStyleCharacters}>/</Button>
                     </Grid>
                     <Grid item xs={3}>
                         <Button variant="contained" className={classes.buttonStyle}>4</Button>
@@ -53,7 +83,7 @@ class Calculator extends Component {
                         <Button variant="contained" className={classes.buttonStyle}>6</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>x</Button>
+                        <Button variant="contained" className={classes.buttonStyleCharacters}>x</Button>
                     </Grid>
                     <Grid item xs={3}>
                         <Button variant="contained" className={classes.buttonStyle}>1</Button>
@@ -65,16 +95,16 @@ class Calculator extends Component {
                         <Button variant="contained" className={classes.buttonStyle}>3</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>-</Button>
+                        <Button variant="contained" className={classes.buttonStyleCharacters}>-</Button>
                     </Grid>
-                    <Grid item xs={6}>
-                        <Button variant="contained" className={classes.buttonStyleNull}>0</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>=</Button>
+                    <Grid item xs>
+                        <Button variant="contained" fullWidth className={classes.buttonStyleNull}>0</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button variant="contained" className={classes.buttonStyle}>+</Button>
+                        <Button variant="contained" className={classes.buttonStyleSum}>=</Button>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Button variant="contained" className={classes.buttonStyleCharacters}>+</Button>
                     </Grid>
                 </Grid>
             </div>
