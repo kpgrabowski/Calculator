@@ -13,25 +13,25 @@ class App extends React.Component {
 
     render() {
         return (
-            <div >
+            <div>
                 <AppBarCalculator/>
                 <div style={{
-                  display:"flex",
-                  justifyContent:"center",
+                    display: "flex",
+                    justifyContent: "center",
                 }}>
-                <div  style={{
-                  display:"flex",
-                  flexDirection: "column",
-                }} >
-                    <div   >
-                    <RefreshWebsite/>
-                    </div>
                     <div style={{
-                      display:"flex",
+                        display: "flex",
+                        flexDirection: "column",
                     }}>
-                    <Calculator/>
+                        <div>
+                            <RefreshWebsite/>
+                        </div>
+                        <div style={{
+                            display: "flex",
+                        }}>
+                            <Calculator/>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         );
