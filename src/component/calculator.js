@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import ListItem from "@material-ui/core/ListItem";
 
 const styles = theme => ({
     calculatorStyle: {
@@ -35,27 +36,36 @@ const styles = theme => ({
 });
 
 class Calculator extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
+
+        state = {
             score: [],
         };
-    }
+
+
+    componentDidMount(){
+        console.log(this.num);
+    };
 
     handelButtonNine = () => {
         this.setState({
-        ...this.state,
-            score: this.state.score.push('9'),
+            score: this.state.score.push(9),
         })
     };
 
     handelButtonEight = () => {
         this.setState({
-            ...this.state,
-            score: this.state.score.push('8'),
-        })
+            score: this.state.score.push(8),
+
+        });
     };
+
+    num = this.state.score.map((number) =>
+            <ListItem key={number.toString()} value={number}/>
+    );
+
+
+
 
 
     render() {
@@ -68,7 +78,7 @@ class Calculator extends Component {
                             disabled
                             id="filled-disabled"
                             label="Display"
-                            value={this.state.score[0]}
+                            value={this.num}
                             className={classes.textField}
                             margin="normal"
                             variant="filled"
