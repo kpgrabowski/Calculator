@@ -70,6 +70,14 @@ class Calculator extends Component {
      return this.state.score.join('');
     };
 
+  handleDot = () =>{
+    let dot = ['.'];
+
+    this.setState({
+      score: this.state.score.concat(dot),
+    })
+  };
+
   handleSignOfAction = () =>{
         let add = [" + "];
       this.setState({
@@ -86,7 +94,6 @@ class Calculator extends Component {
     this.setState({
       score: [result],
     })
-
   };
 
 
@@ -128,13 +135,13 @@ class Calculator extends Component {
                         <Button variant="contained"
                                 className={classes.buttonStyleCharacters}>-</Button>
                     </Grid>
-                    <Grid item xs>
-                        <Button variant="contained"
-                                fullWidth
-                                className={classes.buttonStyleNull}
-                                onClick={this.handleButtonNumber(0)}
-                        >0</Button>
-                    </Grid>
+                  {this.returnButtonElement(0)}
+                  <Grid item xs={3}>
+                    <Button variant="contained"
+                            className={classes.buttonStyle}
+                            onClick={this.handleDot}
+                    >.</Button>
+                  </Grid>
                     <Grid item xs={3}>
                         <Button variant="contained"
                                 className={classes.buttonStyleSum}
