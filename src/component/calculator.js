@@ -37,7 +37,8 @@ const styles = theme => ({
 class Calculator extends Component {
 
         state = {
-            score: [],
+          score: [],
+          type: '',
         };
 
 
@@ -78,18 +79,53 @@ class Calculator extends Component {
     })
   };
 
-  handleSignOfAction = () =>{
+  handleSignOfActionDivide = () =>{
+    let divide = [" / "];
+    this.setState({
+      score: this.state.score.concat([divide]),
+      type: 'DIVIDE'
+    })
+  };
+
+  handleSignOfActionDrubbing = () =>{
+    let drubbing = [" * "];
+    this.setState({
+      score: this.state.score.concat([drubbing]),
+      type: 'DRUBBING'
+    })
+  };
+
+  handleSignOfActionMinus = () =>{
+    let minus = [" - "];
+    this.setState({
+      score: this.state.score.concat([minus]),
+      type: 'MINUS'
+    })
+  };
+
+  handleSignOfActionAdd = () =>{
         let add = [" + "];
       this.setState({
-        score: this.state.score.concat([add])
+        score: this.state.score.concat([add]),
+        type: 'ADD'
       })
     };
 
   handleSum = () => {
     const num1 = this.state.score.join('').split(" + ");
 
-    const result = ( num1.reduce((prev, cur) => {
-     return Number(prev) + Number(cur);}));
+
+
+    switch (this.state.type){
+      case 'ADD':
+        ( num1.reduce((prev, cur) => {
+          return Number(prev) + Number(cur);}));
+        break;
+      default:
+        console.log("Error");
+    }
+
+
 
     this.setState({
       score: [result],
