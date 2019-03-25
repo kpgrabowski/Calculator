@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import ListItem from "@material-ui/core/ListItem";
 
 const styles = theme => ({
     calculatorStyle: {
@@ -37,31 +36,45 @@ const styles = theme => ({
 
 class Calculator extends Component {
 
-
         state = {
             score: [],
         };
 
 
 
-    handelButtonNine = () => {
-      let nine = [9];
-      this.setState({
-        score: this.state.score.concat(nine),
-        })
-    };
+  handleClear = () => {
+    this.setState({
+      score: [],
+    })
+  };
 
-    handelButtonEight = () => {
-      let eight = [8];
+  handleButtonNumber = (num) => {
+      return () => {
         this.setState({
-            score: this.state.score.concat(eight),
-
-        });
+          score: this.state.score.concat(num),
+        })
+      };
     };
+
+  returnButtonElement = (element) => {
+    const {classes} = this.props;
+    return  <Grid item xs={3}>
+      <Button variant="contained"
+              className={classes.buttonStyle}
+              onClick={this.handleButtonNumber(element)}>
+        {element}</Button>
+    </Grid>;
+  };
 
     createToString = () => {
-     return this.state.score.join().replace(/,/g, '');
+     return this.state.score.join('');
+    };
 
+  handleSignOfAction = () =>{
+        let add = [" + "];
+      this.setState({
+        score: this.state.score.concat([add])
+      })
     };
 
 
@@ -82,53 +95,23 @@ class Calculator extends Component {
                             fullWidth
                         />
                     </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}>
-                            7</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}
-                                onClick={this.handelButtonEight}>8</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}
-                                onClick={this.handelButtonNine}>9</Button>
-                    </Grid>
+                  {this.returnButtonElement(7)}
+                  {this.returnButtonElement(8)}
+                  {this.returnButtonElement(9)}
                     <Grid item xs={3}>
                         <Button variant="contained"
                                 className={classes.buttonStyleCharacters}>/</Button>
                     </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}>4</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}>5</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}>6</Button>
-                    </Grid>
+                  {this.returnButtonElement(4)}
+                  {this.returnButtonElement(5)}
+                  {this.returnButtonElement(6)}
                     <Grid item xs={3}>
                         <Button variant="contained"
                                 className={classes.buttonStyleCharacters}>x</Button>
                     </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}>1</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}>2</Button>
-                    </Grid>
-                    <Grid item xs={3}>
-                        <Button variant="contained"
-                                className={classes.buttonStyle}>3</Button>
-                    </Grid>
+                  {this.returnButtonElement(1)}
+                  {this.returnButtonElement(2)}
+                  {this.returnButtonElement(3)}
                     <Grid item xs={3}>
                         <Button variant="contained"
                                 className={classes.buttonStyleCharacters}>-</Button>
@@ -136,15 +119,28 @@ class Calculator extends Component {
                     <Grid item xs>
                         <Button variant="contained"
                                 fullWidth
-                                className={classes.buttonStyleNull}>0</Button>
+                                className={classes.buttonStyleNull}
+                                onClick={this.handleButtonNumber(0)}
+                        >0</Button>
                     </Grid>
                     <Grid item xs={3}>
                         <Button variant="contained"
-                                className={classes.buttonStyleSum}>=</Button>
+                                className={classes.buttonStyleSum}
+                        >=</Button>
                     </Grid>
                     <Grid item xs={3}>
                         <Button variant="contained"
-                                className={classes.buttonStyleCharacters}>+</Button>
+                                className={classes.buttonStyleCharacters}
+                                onClick={this.handleSignOfAction}
+                        >+</Button>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Button variant="contained"
+                              className={classes.buttonStyleCharacters}
+                              onClick={this.handleClear}
+                      >
+                          Clear
+                      </Button>
                     </Grid>
                 </Grid>
             </div>
