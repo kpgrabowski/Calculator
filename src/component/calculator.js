@@ -60,15 +60,9 @@ class Calculator extends Component {
     };
 
     createToString = () => {
-     return this.state.score.join();
+     return this.state.score.join().replace(/,/g, '');
 
     };
-
-    removeComma = () => {
-      console.log(this.createToString());
-      return this.createToString().replace(',',"")
-    };
-
 
 
     render() {
@@ -81,7 +75,7 @@ class Calculator extends Component {
                             disabled
                             id="filled-disabled"
                             label="Display"
-                            value={this.removeComma()}
+                            value={this.createToString()}
                             className={classes.textField}
                             margin="normal"
                             variant="filled"
