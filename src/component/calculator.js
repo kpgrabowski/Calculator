@@ -77,6 +77,18 @@ class Calculator extends Component {
       })
     };
 
+  handleSum = () => {
+    const num1 = this.state.score.join('').split(" + ");
+
+    const result = ( num1.reduce((prev, cur) => {
+     return Number(prev) + Number(cur);}));
+
+    this.setState({
+      score: [result],
+    })
+
+  };
+
 
     render() {
         const {classes} = this.props;
@@ -126,6 +138,7 @@ class Calculator extends Component {
                     <Grid item xs={3}>
                         <Button variant="contained"
                                 className={classes.buttonStyleSum}
+                                onClick={this.handleSum}
                         >=</Button>
                     </Grid>
                     <Grid item xs={3}>
