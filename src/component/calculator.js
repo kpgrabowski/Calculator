@@ -43,28 +43,31 @@ class Calculator extends Component {
         };
 
 
-    componentDidMount(){
-        console.log(this.num);
-    };
 
     handelButtonNine = () => {
-        this.setState({
-            score: this.state.score.push(9),
+      let nine = [9];
+      this.setState({
+        score: this.state.score.concat(nine),
         })
     };
 
     handelButtonEight = () => {
+      let eight = [8];
         this.setState({
-            score: this.state.score.push(8),
+            score: this.state.score.concat(eight),
 
         });
     };
 
-    num = this.state.score.map((number) =>
-            <ListItem key={number.toString()} value={number}/>
-    );
+    createToString = () => {
+     return this.state.score.join();
 
+    };
 
+    removeComma = () => {
+      console.log(this.createToString());
+      return this.createToString().replace(',',"")
+    };
 
 
 
@@ -78,7 +81,7 @@ class Calculator extends Component {
                             disabled
                             id="filled-disabled"
                             label="Display"
-                            value={this.num}
+                            value={this.removeComma()}
                             className={classes.textField}
                             margin="normal"
                             variant="filled"
