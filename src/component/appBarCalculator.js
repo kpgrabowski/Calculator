@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const styles = {
     root: {
@@ -23,6 +24,9 @@ const styles = {
     },
 };
 
+const MyLink = props => <Link to="/loggIn" {...props} />;
+
+
 function AppBarCalculator(props) {
     const {classes} = props;
     return (
@@ -35,7 +39,13 @@ function AppBarCalculator(props) {
                         className={classes.grow}>
                         CALCULATOR
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <div>
+                    <Button color="inherit"
+                            component={MyLink}
+                    >
+                      Login</Button>
+
+                    </div>
                 </Toolbar>
             </AppBar>
         </div>
