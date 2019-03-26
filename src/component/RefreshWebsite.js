@@ -3,16 +3,7 @@ import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import withStyles from "@material-ui/core/es/styles/withStyles";
 import PropTypes from "prop-types";
-
-const styles = theme => ({
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
-  },
-});
-
-
+import styles from './RefreshWebsite-style';
 
 class RefreshWebsite extends React.Component {
   constructor(props) {

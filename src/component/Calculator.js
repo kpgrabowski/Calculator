@@ -4,35 +4,7 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-
-const styles = theme => ({
-    calculatorStyle: {
-        height: '400px',
-        width: '500px',
-    },
-    buttonStyle: {
-        margin: theme.spacing.unit,
-        backgroundColor: 'green',
-    },
-    buttonStyleCharacters: {
-        margin: theme.spacing.unit,
-        backgroundColor: 'blue',
-        color: 'white',
-    },
-    buttonStyleNull: {
-        marginRight: '53px',
-        marginTop: '8px',
-        backgroundColor: 'green',
-    },
-    buttonStyleSum: {
-        margin: theme.spacing.unit,
-        backgroundColor: 'red',
-    },
-    textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-    },
-});
+import styles from './Calculator-style';
 
 class Calculator extends Component {
 
@@ -40,8 +12,6 @@ class Calculator extends Component {
           score: [],
           type: '',
         };
-
-
 
   handleClear = () => {
     this.setState({

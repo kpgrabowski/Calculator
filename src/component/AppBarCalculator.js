@@ -6,23 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-
-const styles = {
-    root: {
-        flexGrow: 1,
-    },
-    grow: {
-        flexGrow: 1,
-        textAlign: 'center',
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-    },
-    navBar: {
-        backgroundColor: '#FF8C00',
-    },
-};
+import styles from './AppBarCalculator-style';
 
 const MyLink = props => <Link to="/loggIn" {...props} />;
 
