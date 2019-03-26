@@ -1,7 +1,7 @@
 import React from 'react';
-import AppBarCalculator from './appBarCalculator';
-import RefreshWebsite from './refreshWebsite';
-import Calculator from "./calculator";
+import AppBarCalculator from './AppBarCalculator';
+import RefreshWebsite from './RefreshWebsite';
+import Calculator from "./Calculator";
 
 class App extends React.Component {
 
