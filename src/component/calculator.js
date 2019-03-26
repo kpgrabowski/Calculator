@@ -112,24 +112,39 @@ class Calculator extends Component {
     };
 
   handleSum = () => {
-    const num1 = this.state.score.join('').split(" + ");
-
-
 
     switch (this.state.type){
       case 'ADD':
-        ( num1.reduce((prev, cur) => {
-          return Number(prev) + Number(cur);}));
+        const num1 = this.state.score.join('').split(" + ");
+        this.setState({
+          score: [( num1.reduce((prev, cur) => {
+            return Number(prev) + Number(cur);}))]
+        });
+        break;
+      case 'MINUS':
+        const num2 = this.state.score.join('').split(" - ");
+        this.setState({
+          score: [( num2.reduce((prev, cur) => {
+            return Number(prev) - Number(cur);}))]
+        });
+        break;
+      case 'DRUBBING':
+        const num3 = this.state.score.join('').split(" * ");
+        this.setState({
+          score: [( num3.reduce((prev, cur) => {
+            return Number(prev) * Number(cur);}))]
+        });
+        break;
+      case 'DIVIDE':
+        const num4 = this.state.score.join('').split(" / ");
+        this.setState({
+          score: [( num4.reduce((prev, cur) => {
+            return Number(prev) / Number(cur);}))]
+        });
         break;
       default:
         console.log("Error");
     }
-
-
-
-    this.setState({
-      score: [result],
-    })
   };
 
 
@@ -155,21 +170,27 @@ class Calculator extends Component {
                   {this.returnButtonElement(9)}
                     <Grid item xs={3}>
                         <Button variant="contained"
-                                className={classes.buttonStyleCharacters}>/</Button>
+                                className={classes.buttonStyleCharacters}
+                                onClick={this.handleSignOfActionDivide}
+                        >/</Button>
                     </Grid>
                   {this.returnButtonElement(4)}
                   {this.returnButtonElement(5)}
                   {this.returnButtonElement(6)}
                     <Grid item xs={3}>
                         <Button variant="contained"
-                                className={classes.buttonStyleCharacters}>x</Button>
+                                className={classes.buttonStyleCharacters}
+                                onClick={this.handleSignOfActionDrubbing}
+                        >x</Button>
                     </Grid>
                   {this.returnButtonElement(1)}
                   {this.returnButtonElement(2)}
                   {this.returnButtonElement(3)}
                     <Grid item xs={3}>
                         <Button variant="contained"
-                                className={classes.buttonStyleCharacters}>-</Button>
+                                className={classes.buttonStyleCharacters}
+                                onClick={this.handleSignOfActionMinus}
+                        >-</Button>
                     </Grid>
                   {this.returnButtonElement(0)}
                   <Grid item xs={3}>
@@ -187,7 +208,7 @@ class Calculator extends Component {
                     <Grid item xs={3}>
                         <Button variant="contained"
                                 className={classes.buttonStyleCharacters}
-                                onClick={this.handleSignOfAction}
+                                onClick={this.handleSignOfActionAdd}
                         >+</Button>
                     </Grid>
                     <Grid item xs={12}>
