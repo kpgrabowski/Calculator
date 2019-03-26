@@ -16,9 +16,9 @@ class RefreshWebsite extends React.Component {
 
   handelAlert = () => {
     setTimeout(() => {
-        alert("Wpisałeś czas: " + this.state.timeToRefresh);
+        alert("Wpisałeś czas: " + this.state.timeToRefresh + " sec");
       },
-      this.state.timeToRefresh)
+      this.state.timeToRefresh*1000)
   };
 
   handleTimeToRefresh = timeToRefresh => event => {
@@ -35,7 +35,7 @@ class RefreshWebsite extends React.Component {
         <div>
         <TextField
           id="timeToRefreshId"
-          label="Write time to refresh"
+          label="Write time to refresh [sec]"
           className={classes.textField}
           value={this.state.timeToRefresh}
           onChange={this.handleTimeToRefresh('timeToRefresh')}
@@ -48,7 +48,7 @@ class RefreshWebsite extends React.Component {
           color="primary"
           onClick={this.handelAlert}
         >
-          Hello Kamil
+         Refresh
         </Button>
         </div>
       </div>
