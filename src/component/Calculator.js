@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import withStyles from "@material-ui/core/es/styles/withStyles";
 import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
+import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import styles from './Calculator-style';
