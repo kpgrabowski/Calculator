@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './LoggIn-style'
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
+import {Link} from "react-router-dom";
 
 class LoggIn extends Component{
 
@@ -27,7 +28,7 @@ class LoggIn extends Component{
           <div>
           <Typography variant="h6"
                       component="h3">
-            Welcome in my page :D
+            Sign In
           </Typography>
           </div>
           <div>
@@ -55,9 +56,14 @@ class LoggIn extends Component{
           <div>
           <Button variant="contained"
                   color="primary"
-                  className={classes.button}>
-            Primary
+                  className={classes.button}
+                  component={Link} to="/"
+          >
+            login
           </Button>
+          </div>
+          <div>
+            <Link to="/createAccount">Create an account </Link>
           </div>
         </Paper>
       </div>

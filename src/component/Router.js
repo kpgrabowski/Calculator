@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from "./App";
 import LoggIn from "./LoggIn";
 import PageNotFound from "./PageNotFound";
+import CreateAccount from "./CreateAccount";
 
 export default class Router extends Component{
 
@@ -12,6 +13,7 @@ export default class Router extends Component{
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/loggIn" component={LoggIn} />
+          <Route to="/createAccount" component={CreateAccount} />
           <Route component={PageNotFound} />
         </Switch>
       </BrowserRouter>
