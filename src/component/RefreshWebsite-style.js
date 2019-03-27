@@ -4,6 +4,9 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     width: 200,
   },
+  refreshTime: {
+    backgroundColor: "orange",
+  },
 });
 
 export default styles;

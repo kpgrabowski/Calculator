@@ -2,6 +2,8 @@ import React from 'react';
 import AppBarCalculator from './AppBarCalculator';
 import RefreshWebsite from './RefreshWebsite';
 import Calculator from "./Calculator";
+import Grid from "@material-ui/core/Grid";
+import MathematicalOperations from "./MathematicalOperations";
 
 class App extends React.Component {
 
@@ -15,23 +17,18 @@ class App extends React.Component {
         return (
             <div>
                 <AppBarCalculator/>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center",
-                }}>
-                    <div style={{
-                        display: "flex",
-                        flexDirection: "column",
-                    }}>
-                        <div>
+                <div>
+                    <Grid container>
+                        <Grid item xs={2}>
                             <RefreshWebsite/>
-                        </div>
-                        <div style={{
-                            display: "flex",
-                        }}>
+                        </Grid>
+                        <Grid item xs={5}>
                             <Calculator/>
-                        </div>
-                    </div>
+                        </Grid>
+                        <Grid item xs={5}>
+                            <MathematicalOperations/>
+                        </Grid>
+                    </Grid>
                 </div>
             </div>
         );
