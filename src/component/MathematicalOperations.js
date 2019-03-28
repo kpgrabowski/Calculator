@@ -8,7 +8,7 @@ class MathematicalOperations extends Component {
     const { classes } = this.props;
     return(
       <div className={classes.operationComponent}>
-        <h2>COMPONENT</h2>
+        <h2>XxXxXx</h2>
       </div>
     )
   }
