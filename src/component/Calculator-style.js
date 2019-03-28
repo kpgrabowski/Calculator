@@ -1,7 +1,6 @@
 const styles = theme => ({
   calculatorStyle: {
-    height: '400px',
-    width: '500px',
+    backgroundColor: "yellow",
   },
   buttonStyle: {
     margin: theme.spacing.unit,

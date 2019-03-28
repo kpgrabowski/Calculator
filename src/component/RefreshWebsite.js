@@ -31,7 +31,7 @@ class RefreshWebsite extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div styles={{ display:"flex"}}>
+      <div styles={{ display:"flex"}} className={classes.refreshWebsite} >
         <div>
         <TextField
           id="timeToRefreshId"
