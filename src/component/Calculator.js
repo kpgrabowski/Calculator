@@ -9,7 +9,6 @@ import styles from './Calculator-style';
 class Calculator extends Component {
 
         state = {
-          listOfHistory: [],
           score: [],
           type: '',
         };
@@ -22,12 +21,8 @@ class Calculator extends Component {
 
   handleSave = () => {
 
-    let history =
 
-    this.setState({
-      listOfHistory: [11],
-    });
-    console.log(this.state.listOfHistory)
+    console.log(this.state.type)
   };
 
 
@@ -129,6 +124,17 @@ class Calculator extends Component {
     }
   };
 
+    addNewBook = (book) => {
+        this.setState({
+            books: [...this.state.books, book],
+        });
+    };
+
+  addOperationToHistory = (event) => {
+      const newOperation = {...this.props.history};
+
+
+  };
 
     render() {
         const {classes} = this.props;

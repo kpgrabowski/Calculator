@@ -6,7 +6,6 @@ const initialState = {
   }
 };
 
-
 const historyPanel = (state = initialState, action) => {
 
   switch(action.type) {
@@ -17,6 +16,5 @@ const historyPanel = (state = initialState, action) => {
       return state;
   }
 };
-
 
 export default historyPanel;

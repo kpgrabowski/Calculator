@@ -10,8 +10,21 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {}
+        this.state = {
+            history: [],
+        }
     }
+
+
+    addToHistory = (operation) =>{
+      let newOperation = [...this.state.history];
+      newOperation.push(operation);
+
+      this.setState({
+          history: newOperation
+      })
+    };
+
 
     render() {
         return (
@@ -26,7 +39,9 @@ class App extends React.Component {
                             <Calculator/>
                         </Grid>
                         <Grid item xs={6}>
-                            <MathematicalOperations/>
+                            <MathematicalOperations
+                                addToHistory={this.addToHistory}
+                            />
                         </Grid>
                     </Grid>
                 </div>
