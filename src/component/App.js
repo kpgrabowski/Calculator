@@ -22,10 +22,10 @@ class App extends React.Component {
                         <Grid item xs={2}>
                             <RefreshWebsite/>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={4}>
                             <Calculator/>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <MathematicalOperations/>
                         </Grid>
                     </Grid>

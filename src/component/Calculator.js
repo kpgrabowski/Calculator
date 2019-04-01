@@ -9,6 +9,7 @@ import styles from './Calculator-style';
 class Calculator extends Component {
 
         state = {
+          listOfHistory: [],
           score: [],
           type: '',
         };
@@ -18,6 +19,17 @@ class Calculator extends Component {
       score: [],
     })
   };
+
+  handleSave = () => {
+
+    let history =
+
+    this.setState({
+      listOfHistory: [11],
+    });
+    console.log(this.state.listOfHistory)
+  };
+
 
   handleButtonNumber = (num) => {
       return () => {
@@ -181,7 +193,7 @@ class Calculator extends Component {
                                 onClick={this.handleSignOfActionAdd}
                         >+</Button>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={6}>
                       <Button variant="contained"
                               className={classes.buttonStyleCharacters}
                               onClick={this.handleClear}
@@ -189,6 +201,14 @@ class Calculator extends Component {
                           Clear
                       </Button>
                     </Grid>
+                  <Grid item xs={6}>
+                    <Button variant="contained"
+                            className={classes.buttonStyleCharacters}
+                            onClick={this.handleSave}
+                    >
+                      Save
+                    </Button>
+                  </Grid>
                 </Grid>
             </div>
         )

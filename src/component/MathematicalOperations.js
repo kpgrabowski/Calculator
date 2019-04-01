@@ -6,9 +6,13 @@ class MathematicalOperations extends Component {
 
   render(){
     const { classes } = this.props;
+    let historyList = <h2>You don't have any history</h2>;
+
+
     return(
       <div className={classes.operationComponent}>
-        <h2>XxXxXx</h2>
+        <h1>YOUR HISTORY:</h1>
+        { historyList }
       </div>
     )
   }
