@@ -1,17 +1,13 @@
 const initialState = {
-  history: {
-    id: '',
-    scoreHistory: '',
-    typeHistory: '',
-  }
+  listOfHistory: [],
 };
 
 const historyPanel = (state = initialState, action) => {
 
   switch(action.type) {
     case 'ADD_TO_HISTORY':
-      const history = action.payload;
-      return {...state, history};
+      const listOfHistory = [...state.listOfHistory, action.payload] ;
+      return {...state, listOfHistory};
     default:
       return state;
   }

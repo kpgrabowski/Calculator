@@ -5,6 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import styles from './Calculator-style';
+import {compose} from "redux";
+import {connect} from "react-redux";
 
 class Calculator extends Component {
 
@@ -19,10 +21,10 @@ class Calculator extends Component {
     })
   };
 
-  handleSave = () => {
-
-
-    console.log(this.state.type)
+  handleSave = (operation) => {
+    this.props.addToHistory(operation);
+    console.log(this.state.type);
+    console.log(this.createToString());
   };
 
 
@@ -221,7 +223,15 @@ class Calculator extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addToHistory: (payload) => dispatch({type:'ADD_TO_HISTORY', payload}),
+  }
+};
+
 Calculator.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-export default withStyles(styles)(Calculator);
+
+export default compose(connect(null, mapDispatchToProps),
+  withStyles(styles))(Calculator);

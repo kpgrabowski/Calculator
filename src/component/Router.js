@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import App from "./App";
-import LoggIn from "./LoggIn";
-import PageNotFound from "./PageNotFound";
-import CreateAccount from "./CreateAccount";
+import App from './App';
+import LoggIn from './LoggIn';
+import PageNotFound from './PageNotFound';
+import CreateAccount from './CreateAccount';
 import {Provider} from "react-redux";
 import store from '../action/store'
 
