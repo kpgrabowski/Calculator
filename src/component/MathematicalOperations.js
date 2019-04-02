@@ -4,15 +4,34 @@ import styles from './MathematicalOperations-style';
 import OperationView from "./OperationView";
 import {connect} from "react-redux";
 import {compose} from "redux";
+import {fbase} from "../firebase";
 
 class MathematicalOperations extends Component {
+
+  constructor(){
+    super();
+    this.state={
+    }
+  }
+
+
+  componentDidMount() {
+    this.ref = fbase.syncState('calculator/history', {
+      context: this,
+      state: 'history'
+    });
+  };
+
+  componentWillUnmount() {
+    fbase.removeBinding(this.ref);
+  };
 
   render(){
     const { classes } = this.props;
     let historyList = <h2>You don't have any history</h2>;
 
-    if(Array.isArray(this.props.history)){
-      historyList = this.props.history.map(operation => {
+    if(Array.isArray(this.state.history)){
+      historyList = this.state.history.map(operation => {
         return <OperationView key={operation.id} operation={operation} />
       })
     }
@@ -28,7 +47,7 @@ class MathematicalOperations extends Component {
 
 const mapStateToProps = state => {
   return {
-    history: state.history
+    history: state.listOfHistory
   }
 };
 

@@ -7,13 +7,33 @@ import TextField from "@material-ui/core/TextField";
 import styles from './Calculator-style';
 import {compose} from "redux";
 import {connect} from "react-redux";
+import uuid from 'uuid';
+import { fbase } from '../firebase';
 
 class Calculator extends Component {
 
-        state = {
-          score: [],
-          type: '',
-        };
+  constructor(props){
+    super(props);
+
+    this.state = {
+      score: [],
+      type: '',
+    };
+  };
+
+
+
+  componentDidMount() {
+    this.ref = fbase.syncState('calculator/history', {
+      context: this,
+      state: 'history'
+    });
+  };
+
+  componentWillUnmount() {
+    fbase.removeBinding(this.ref);
+  };
+
 
   handleClear = () => {
     this.setState({
@@ -23,8 +43,11 @@ class Calculator extends Component {
 
   handleSave = (operation) => {
     this.props.addToHistory(operation);
-    console.log(this.state.type);
-    console.log(this.createToString());
+      this.setState({
+        history: Array.isArray(this.props.history) ?
+          [...this.state.history, operation] :
+          [operation]
+      })
   };
 
 
@@ -126,17 +149,6 @@ class Calculator extends Component {
     }
   };
 
-    addNewBook = (book) => {
-        this.setState({
-            books: [...this.state.books, book],
-        });
-    };
-
-  addOperationToHistory = (event) => {
-      const newOperation = {...this.props.history};
-
-
-  };
 
     render() {
         const {classes} = this.props;
@@ -212,7 +224,11 @@ class Calculator extends Component {
                   <Grid item xs={6}>
                     <Button variant="contained"
                             className={classes.buttonStyleCharacters}
-                            onClick={this.handleSave}
+                            onClick={()=> {this.handleSave({
+                              id:uuid.v4(),
+                              score: this.createToString(),
+                              type: this.state.type,
+                            })}}
                     >
                       Save
                     </Button>
@@ -229,9 +245,15 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
+const mapStateToProps = state => {
+  return {
+    history: state.listOfHistory
+  }
+};
+
 Calculator.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default compose(connect(null, mapDispatchToProps),
+export default compose(connect(mapStateToProps, mapDispatchToProps),
   withStyles(styles))(Calculator);
