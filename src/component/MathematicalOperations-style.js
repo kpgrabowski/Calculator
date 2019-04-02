@@ -1,6 +1,5 @@
 const styles = {
   operationComponent: {
-    backgroundColor: "green",
   },
 };
 

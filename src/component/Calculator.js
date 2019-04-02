@@ -45,7 +45,7 @@ class Calculator extends Component {
     this.props.addToHistory(operation);
       this.setState({
         history: Array.isArray(this.props.history) ?
-          [...this.state.history, operation] :
+          [...this.state.history, operation]:
           [operation]
       })
   };
