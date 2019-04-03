@@ -15,7 +15,11 @@ class OperationView extends Component{
                 <div style={{display: "flex", justifyContent: "space-between"}}>
                 <h4>{this.props.operation.score}</h4>
                 <h4>{this.props.operation.type}</h4>
-                  <Button variant="contained" color="secondary" className={classes.button}>
+                  <Button variant="contained"
+                          color="secondary"
+                          className={classes.button}
+                          onClick={()=> this.props.removeOperation(this.props.operation.id)}
+                  >
                     Delete
                   </Button>
                 </div>

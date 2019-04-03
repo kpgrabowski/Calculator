@@ -26,13 +26,20 @@ class MathematicalOperations extends Component {
     fbase.removeBinding(this.ref);
   };
 
+  removeOperation = (id) =>{
+    this.setState({
+      history: this.state.history.filter(operation => id!==operation.id)
+    })
+  };
+
+
   render(){
     const { classes } = this.props;
     let historyList = <h2>You don't have any history</h2>;
 
     if(Array.isArray(this.state.history)){
       historyList = this.state.history.map(operation => {
-        return <OperationView key={operation.id} operation={operation} />
+        return <OperationView key={operation.id} operation={operation} removeOperation={this.removeOperation}/>
       })
     }
 
