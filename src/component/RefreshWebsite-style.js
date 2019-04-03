@@ -5,7 +5,6 @@ const styles = theme => ({
     width: 200,
   },
   refreshWebsite: {
-    backgroundColor: "red",
   }
 });
 
