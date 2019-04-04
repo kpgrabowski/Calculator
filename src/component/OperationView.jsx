@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './OperationView-style'
+import style from '../styles/OperationView-style'
 import { withStyles } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
 import {Button} from "@material-ui/core";

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withStyles} from "@material-ui/core";
-import style from "./OperationView-style";
+import style from "../styles/OperationView-style";
 import Paper from "@material-ui/core/Paper";
 
 class FavoritenView extends Component {

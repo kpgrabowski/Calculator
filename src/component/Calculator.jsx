@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import { withStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import styles from './Calculator-style';
+import styles from '../styles/Calculator-style';
 import {compose} from "redux";
 import {connect} from "react-redux";
 import uuid from 'uuid';

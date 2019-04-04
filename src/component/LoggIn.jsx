@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Paper from "@material-ui/core/Paper/Paper";
 import Typography from "@material-ui/core/Typography/Typography";
 import { withStyles } from '@material-ui/core/styles';
-import styles from './LoggIn-style'
+import styles from '../styles/LoggIn-style'
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import {Link} from "react-router-dom";

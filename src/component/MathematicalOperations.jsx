@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {withStyles} from "@material-ui/core";
-import styles from './MathematicalOperations-style';
+import styles from '../styles/MathematicalOperations-style';
 import OperationView from "./OperationView";
 import {connect} from "react-redux";
 import {compose} from "redux";

@@ -1,7 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/es/styles/withStyles";
 import PropTypes from "prop-types";
-import styles from './RefreshWebsite-style';
+import styles from '../styles/RefreshWebsite-style';
 import {fbase} from "../firebase";
 import FavoritenView from "./FavoritenView";
 

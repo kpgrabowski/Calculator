@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import styles from './AppBarCalculator-style';
+import styles from '../styles/AppBarCalculator-style';
 
 const MyLink = props => <Link to="/loggIn" {...props} />;
 
