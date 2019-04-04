@@ -4,6 +4,7 @@ import RefreshWebsite from './RefreshWebsite';
 import Calculator from "./Calculator";
 import MathematicalOperations from "./MathematicalOperations";
 import Grid from "@material-ui/core/Grid";
+import LoggIn from "./LoggIn";
 
 class App extends React.Component {
 
@@ -11,17 +12,29 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-
+            loggedIn: false,
         }
     }
 
+    changeLoggedIn =(newValue) => this.setState({
+        loggedIn: newValue
+    });
 
 
 
 
     render() {
+
         return (
             <div>
+                {!this.state.loggedIn &&
+                <LoggIn
+                  changeLoggedIn={this.changeLoggedIn}
+                />
+                }
+                {this.state.loggedIn &&
+            <div>
+
                 <AppBarCalculator/>
                 <div>
                     <Grid container>
@@ -36,6 +49,8 @@ class App extends React.Component {
                         </Grid>
                     </Grid>
                 </div>
+            </div>
+              }
             </div>
         );
     }
