@@ -20,6 +20,10 @@ class MathematicalOperations extends Component {
       context: this,
       state: 'history'
     });
+    this.ref = fbase.syncState('calculator/listOfFavorite', {
+      context: this,
+      state: 'listOfFavorite'
+    });
   };
 
   componentWillUnmount() {
@@ -33,7 +37,10 @@ class MathematicalOperations extends Component {
   };
 
   addToFavorite = (id) =>{
-   console.log("siemanko   " + id);
+    this.props.addToFavorite(id);
+    this.setState({
+    listOfFavorite: Array.isArray(this.state.listOfFavorite)? [...this.state.listOfFavorite, id] : [id]
+    });
   };
 
 
@@ -59,13 +66,20 @@ class MathematicalOperations extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addToFavorite: (payload) => dispatch({type:'ADD_TO_FAVORITE', payload}),
+  }
+};
+
 const mapStateToProps = state => {
   return {
-    history: state.listOfHistory
+    history: state.listOfHistory,
+    listOfFavorite: state.listOfFavorite
   }
 };
 
 
 
-export default compose(connect(mapStateToProps, null),
+export default compose(connect(mapStateToProps, mapDispatchToProps),
   withStyles(styles))(MathematicalOperations);

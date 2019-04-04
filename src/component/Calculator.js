@@ -44,7 +44,7 @@ class Calculator extends Component {
   handleSave = (operation) => {
       this.props.addToHistory(operation);
       this.setState({
-        history: Array.isArray(this.props.history) ?
+        history: Array.isArray(this.state.history) ?
           [...this.state.history, operation]:
           [operation]
       })

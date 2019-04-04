@@ -25,7 +25,11 @@ class OperationView extends Component{
                   <Button variant="contained"
                           color="primary"
                           className={classes.button}
-                          onClick={()=> this.props.addToFavorite(this.props.operation.id)}
+                          onClick={()=> this.props.addToFavorite(
+                            {id:this.props.operation.id,
+                            score:this.props.operation.score,
+                            type:this.props.operation.type}
+                            )}
                   >
                     Add to favorite
                   </Button>
