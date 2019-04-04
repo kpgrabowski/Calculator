@@ -6,11 +6,13 @@ import styles from '../styles/LoggIn-style'
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button/Button";
 import {Link} from "react-router-dom";
+import {firebaseApp} from "../firebase";
 
 class LoggIn extends Component{
 
   state ={
     name: '',
+    password: '',
   };
 
   handleChange = name => event => {
@@ -19,10 +21,28 @@ class LoggIn extends Component{
     });
   };
 
+  handleChangePass = password => event => {
+    this.setState({
+      [password]: event.target.value,
+    });
+  };
+
+  authenticate = (event) => {
+    event.preventDefault();
+    firebaseApp.auth().signInWithEmailAndPassword(this.state.name, this.state.password)
+      .then(() => {
+        this.props.changeLoggedIn(true);
+      })
+      .catch(() => {
+        console.log("Ups....");
+      })
+  };
+
   render() {
     const { classes } = this.props;
     return(
       <div style={{display: "flex", justifyContent: "center",}}>
+        <form onSubmit={this.authenticate} className="formLoggiIn">
         <Paper className={classes.root}
                elevation={22}>
           <div>
@@ -51,13 +71,15 @@ class LoggIn extends Component{
             autoComplete="current-password"
             margin="normal"
             variant="outlined"
+            onChange={this.handleChangePass('password')}
+            value={this.state.password}
           />
           </div>
           <div>
           <Button variant="contained"
                   color="primary"
                   className={classes.button}
-                  component={Link} to="/"
+                  // component={Link} to="/"
           >
             login
           </Button>
@@ -66,6 +88,7 @@ class LoggIn extends Component{
             <Link to="/createAccount">Create an account </Link>
           </div>
         </Paper>
+        </form>
       </div>
     )
   }

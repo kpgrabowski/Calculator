@@ -22,7 +22,6 @@ class App extends React.Component {
 
 
 
-
     render() {
 
         return (
@@ -34,7 +33,6 @@ class App extends React.Component {
                 }
                 {this.state.loggedIn &&
             <div>
-
                 <AppBarCalculator/>
                 <div>
                     <Grid container>
