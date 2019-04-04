@@ -32,6 +32,10 @@ class MathematicalOperations extends Component {
     })
   };
 
+  addToFavorite = (id) =>{
+   console.log("siemanko   " + id);
+  };
+
 
   render(){
     const { classes } = this.props;
@@ -39,7 +43,10 @@ class MathematicalOperations extends Component {
 
     if(Array.isArray(this.state.history)){
       historyList = this.state.history.map(operation => {
-        return <OperationView key={operation.id} operation={operation} removeOperation={this.removeOperation}/>
+        return <OperationView key={operation.id}
+                              operation={operation}
+                              removeOperation={this.removeOperation}
+                              addToFavorite={this.addToFavorite}/>
       })
     }
 

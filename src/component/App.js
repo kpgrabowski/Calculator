@@ -25,13 +25,13 @@ class App extends React.Component {
                 <AppBarCalculator/>
                 <div>
                     <Grid container>
-                        <Grid item xs={2}>
+                        <Grid item xs={4}>
                             <RefreshWebsite/>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             <Calculator/>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <MathematicalOperations/>
                         </Grid>
                     </Grid>

@@ -22,6 +22,13 @@ class OperationView extends Component{
                   >
                     Delete
                   </Button>
+                  <Button variant="contained"
+                          color="primary"
+                          className={classes.button}
+                          onClick={()=> this.props.addToFavorite(this.props.operation.id)}
+                  >
+                    Add to favorite
+                  </Button>
                 </div>
               </Paper>
             </div>

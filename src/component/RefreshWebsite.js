@@ -10,47 +10,20 @@ class RefreshWebsite extends React.Component {
     super(props);
 
     this.state = {
-      timeToRefresh: "",
     };
   }
 
-  handelAlert = () => {
-    setTimeout(() => {
-        alert("Wpisałeś czas: " + this.state.timeToRefresh + " sec");
-      },
-      this.state.timeToRefresh*1000)
-  };
 
-  handleTimeToRefresh = timeToRefresh => event => {
-    this.setState({
-      [timeToRefresh]: event.target.value
-    })
-  };
 
 
   render() {
     const { classes } = this.props;
+    let favirite = <h4>You don't have any element in this List </h4>;
+
     return (
-      <div styles={{ display:"flex"}} className={classes.refreshWebsite} >
-        <div>
-        <TextField
-          id="timeToRefreshId"
-          label="Write time to refresh [sec]"
-          className={classes.textField}
-          value={this.state.timeToRefresh}
-          onChange={this.handleTimeToRefresh('timeToRefresh')}
-          margin="normal"
-        />
-        </div>
-        <div>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={this.handelAlert}
-        >
-         Refresh
-        </Button>
-        </div>
+      <div className={classes.refreshWebsite} >
+        <h2>You Favorite:</h2>
+        {favirite}
       </div>
     )
   }
