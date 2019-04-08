@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AppBarCalculator from './AppBarCalculator';
 import RefreshWebsite from './RefreshWebsite';
 import Calculator from "./Calculator";
@@ -6,7 +6,7 @@ import MathematicalOperations from "./MathematicalOperations";
 import Grid from "@material-ui/core/Grid";
 import LoggIn from "./LoggIn";
 
-class App extends React.Component {
+class App extends Component {
 
     constructor(props) {
         super(props);
@@ -20,10 +20,7 @@ class App extends React.Component {
         loggedIn: newValue
     });
 
-
-
     render() {
-
         return (
             <div>
                 {!this.state.loggedIn &&

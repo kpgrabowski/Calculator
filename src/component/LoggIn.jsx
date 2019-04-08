@@ -10,21 +10,17 @@ import {firebaseApp} from "../firebase";
 
 class LoggIn extends Component{
 
-  state ={
-    name: '',
-    password: '',
-  };
+  constructor(props){
+    super(props);
+
+    this.state ={
+      name: '',
+      password: '',
+    };
+  }
 
   handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value,
-    });
-  };
-
-  handleChangePass = password => event => {
-    this.setState({
-      [password]: event.target.value,
-    });
+    this.setState({ [name]: event.target.value });
   };
 
   authenticate = (event) => {
@@ -42,11 +38,11 @@ class LoggIn extends Component{
     const { classes } = this.props;
     return(
       <div style={{display: "flex", justifyContent: "center",}}>
-        <form onSubmit={this.authenticate} className="formLoggiIn">
-        <Paper className={classes.root}
+        <div>
+              <Paper className={classes.root}
                elevation={22}>
-          <div>
-          <Typography variant="h6"
+                <div>
+                    <Typography variant="h6"
                       component="h3">
             Sign In
           </Typography>
@@ -71,7 +67,7 @@ class LoggIn extends Component{
             autoComplete="current-password"
             margin="normal"
             variant="outlined"
-            onChange={this.handleChangePass('password')}
+            onChange={this.handleChange('password')}
             value={this.state.password}
           />
           </div>
@@ -79,16 +75,18 @@ class LoggIn extends Component{
           <Button variant="contained"
                   color="primary"
                   className={classes.button}
-                  // component={Link} to="/"
+                  onClick={this.authenticate}
           >
             login
           </Button>
           </div>
           <div>
-            <Link to="/createAccount">Create an account </Link>
+            <Link
+              to="/createAccount">
+              Create an account </Link>
           </div>
         </Paper>
-        </form>
+        </div>
       </div>
     )
   }
